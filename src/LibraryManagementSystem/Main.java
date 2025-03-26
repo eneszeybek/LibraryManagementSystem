@@ -60,16 +60,12 @@ public class Main {
         System.out.print("Enter book title to search: ");
         String titleToSearch = scanner.nextLine();
         List<Books> foundBooks = booksService.searchByTitle(titleToSearch);
-        for(Books book : foundBooks){
-            System.out.println(book);
-        }
+        foundBooks.forEach(System.out::println);
     }
 
     private static void displayBooks() {
         List<Books> allBooks = booksService.getAll();
-        for(Books book : allBooks){
-            System.out.println(book);
-        }
+        allBooks.forEach(System.out::println);
     }
 
     private static void returnBook() {

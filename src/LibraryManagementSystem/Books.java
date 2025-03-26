@@ -47,11 +47,9 @@ public class Books {
 
     @Override
     public String toString() {
-        return "LibraryManagementSystem.Books{" +
-                "Title='" + title + '\'' +
-                ", Author='" + author + '\'' +
-                ", ISBN=" + isbn +
-                ", Status=" + status +
-                '}';
+        return  "Title: " + title +
+                "\nAuthor: " + author +
+                "\nISBN: " + isbn +
+                "\nStatus: " + status;
     }
 }

@@ -20,22 +20,8 @@ Upon running the application, you'll be presented with a menu:​
 Enter the number corresponding to your choice and follow the prompts.
 
 Project Structure
-The project follows a standard Maven directory structure:
-
-LibraryManagementSystem/
-├── src/
-│   └── main/
-│       └── java/
-│           └── LibraryManagementSystem/
-│               ├── Main.java
-│               ├── Books.java
-│               │── BooksService.java
-│               └── BooksRegistry.java
-├── pom.xml
-└── README.md
 
 Main.java: Contains the main method and handles user interaction.​
 Books.java: Represents the Books class with constructor, getter and setter methods with attributes of title, author, ISBN and availability.
 BooksService.java: Provides methods to operate with user choices, such as adding, listing, searching, checking out, and returning books.​
 BooksRegistry.java: Provides methods to BooksService with building up, listing and searching the book inventory.​
-pom.xml: Maven configuration file containing project dependencies and build configurations.

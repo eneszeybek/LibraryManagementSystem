@@ -2,16 +2,20 @@ package LibraryManagementSystem;
 
 public class Books {
 
+    //Introducing constructor method parameters and status parameter
     private String title;
     private String author;
     private String isbn;
     private boolean status;
 
+    //Defining object by its parameters
     public Books(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
     }
+
+    //Below are getter and setter methods
 
     public String getTitle(){
         return title;
@@ -45,11 +49,20 @@ public class Books {
         this.status = status;
     }
 
+    //toString method for object outputs
+
     @Override
     public String toString() {
-        return  "Title: " + title +
-                "\nAuthor: " + author +
-                "\nISBN: " + isbn +
-                "\nStatus: " + status;
+        String isAvailable;
+        if(getStatus()){
+            isAvailable = "Available";
+        }
+        else isAvailable = "Not available";
+
+        return  "Title\t: " + title +
+                "\nAuthor\t: " + author +
+                "\nISBN\t: " + isbn +
+                "\nStatus\t: " + isAvailable +
+                "\n---------------";
     }
 }

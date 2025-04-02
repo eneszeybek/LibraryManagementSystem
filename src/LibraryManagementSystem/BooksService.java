@@ -7,6 +7,7 @@ public class BooksService {
 
     private final BooksRegistry booksRegistry = new BooksRegistry();
 
+    //Searching a key word in the inventory and listing the books with matching names
     public List<Books> searchByTitle(String titleToSearch) {
         List<Books> foundBooks = new ArrayList<>();
         List<Books> allBooks = booksRegistry.findAll();
@@ -18,29 +19,39 @@ public class BooksService {
         return foundBooks;
     }
 
+    //Listing entire inventory of books
     public List<Books> getAll() {
         return booksRegistry.findAll();
     }
 
-    public void returnBook(String bookIsbn) {
-        boolean isReturned = booksRegistry.isCheckedOut(bookIsbn);
-        if(isReturned){
-            Books book = booksRegistry.findByIsbn(bookIsbn);
+    //Changing the status of a returned book
+    public void returnBook(String isbn) {
+        Books book = booksRegistry.findByIsbn(isbn);
+        if (book == null || book.getStatus()) {
+            System.out.print("\nBook not found or was not checked out.");
+        }
+        else{
             book.setStatus(true);
+            System.out.print("\nBook returned successfully!");
         }
     }
 
+    //Adding new books to library inventory
     public void addBook(String title, String author, String isbn) {
         Books book = new Books(title, author, isbn);
-        book.setStatus(false);
+        book.setStatus(true);
         booksRegistry.register(book);
     }
 
-    public void checkOut(String isbnToCheckOut) {
-        boolean isCheckedOut = booksRegistry.isCheckedOut(isbnToCheckOut);
-        if(isCheckedOut){
-            Books book = booksRegistry.findByIsbn(isbnToCheckOut);
-            book.setStatus(true);
+    //Changing the status of a checked out book
+    public void checkOutBook(String isbn) {
+        Books book = booksRegistry.findByIsbn(isbn);
+        if (book == null || !book.getStatus()) {
+            System.out.print("\nBook not found or already checked out.");
+        }
+        else{
+            book.setStatus(false);
+            System.out.print("\nBook checked out successfully!");
         }
     }
 }
